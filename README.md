@@ -54,10 +54,14 @@ Example overriding `local.yaml`:
 
 ```yaml
 executor:
-    plugin: k8s
-    k8s:
-        host: 127.0.0.1
-        token: this-is-a-real-token
+    defaultPlugin: k8s
+    plugins:
+    - name: k8s
+      options:
+        kubernetes:
+          host: kubernetes.default
+          token: this-is-a-real-token
+        launchVersion: stable
 
 login:
     oauthClientId: totally-real-client-id
